@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Another dimension</title>
+  <link rel="icon" href="../assets/img/favicon.png?v=f826609" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="play.css?v=f826609">
+</head>
+<body>
+  <canvas id="game" aria-label="Platform game"></canvas>
+
+  <a class="back" href="../">← back to the site</a>
+  <div class="top-right">
+    <a href="#" id="restart-level">↺ restart</a>
+    <a href="#" id="restart" hidden>start over</a>
+  </div>
+  <div class="title" id="title"></div>
+
+  <div class="touch" id="touch" aria-hidden="true">
+    <div class="touch-move">
+      <button data-key="left">◀</button>
+      <button data-key="right">▶</button>
+    </div>
+    <button data-key="jump" class="touch-jump">▲</button>
+  </div>
+
+  <div class="dialog" id="lock" hidden>
+    <form class="panel" id="lock-form" autocomplete="off">
+      <p class="panel-kicker">LOCKED</p>
+      <p>This door needs a code.</p>
+      <input id="code" maxlength="32" spellcheck="false" aria-label="Code">
+      <div class="code-split" id="code-split" hidden>
+        <input id="code-a" maxlength="12" spellcheck="false" aria-label="Code, first part">
+        <span aria-hidden="true">-</span>
+        <input id="code-b" maxlength="12" spellcheck="false" aria-label="Code, second part">
+      </div>
+      <p class="panel-status" id="lock-status">&nbsp;</p>
+      <div class="panel-buttons">
+        <button type="button" id="lock-cancel" class="secondary">Step back</button>
+        <button type="submit">Open</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="dialog" id="gate" hidden>
+    <form class="panel" id="gate-form" autocomplete="off">
+      <p class="panel-kicker" id="gate-kicker"></p>
+      <p id="gate-text"></p>
+      <input id="gate-code" maxlength="32" spellcheck="false" aria-label="Code">
+      <p class="panel-status" id="gate-status">&nbsp;</p>
+      <div class="panel-buttons">
+        <button type="button" id="gate-cancel" class="secondary">Start from the beginning</button>
+        <button type="submit">Enter</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="dialog" id="reward" hidden>
+    <div class="panel">
+      <div id="reward-content"></div>
+      <div class="panel-buttons">
+        <a class="button secondary" href="../">Back to the site</a>
+        <button type="button" id="reward-next">Stay here</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="portal portal-in" aria-hidden="true"></div>
+
+  <script type="module" src="game.js?v=f826609"></script>
+</body>
+</html>
